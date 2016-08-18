@@ -2,6 +2,7 @@ package com.pocketbattles.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.pocketbattles.game.Utilities.Utilities;
 
 /**
  * Created by Boris on 16.08.2016.
@@ -13,18 +14,21 @@ public class Game {
     /** INITIALISING */
 
     public static void initialise() {
+        Utilities.initialise();
         stage = new Stage();
     }
 
     /** CREATING AND SETTING UP */
 
     public static void create() {
+        Utilities.create();
         Gdx.input.setInputProcessor(stage);
     }
 
     /** UPDATING */
 
     public static void update() {
+        Utilities.update();
         stage.act();
     }
 
@@ -37,6 +41,7 @@ public class Game {
     /** DISPOSING */
 
     public static void dispose() {
+        Utilities.dispose();
         stage.dispose();
     }
 }
