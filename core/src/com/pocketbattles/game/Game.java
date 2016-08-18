@@ -25,13 +25,13 @@ public class Game {
     /** UPDATING */
 
     public static void update() {
-
+        stage.act();
     }
 
     /** RENDERING */
 
     public static void render() {
-
+        stage.draw();
     }
 
     /** DISPOSING */
