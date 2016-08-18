@@ -1,13 +1,11 @@
 package com.pocketbattles.game;
 
-import com.badlogic.gdx.Game;
-
-public class PocketBattles extends Game {
+public class PocketBattles extends com.badlogic.gdx.Game {
 
 	/** INITIALISING */
 
 	private void initialise() {
-
+		Game.initialise();
 	}
 
 	/** CREATING AND SETTING UP */
@@ -15,12 +13,13 @@ public class PocketBattles extends Game {
 	@Override
 	public void create () {
 		this.initialise();
+		Game.create();
 	}
 
 	/** UPDATING */
 
 	private void update() {
-
+		Game.update();
 	}
 
 	/** RENDERING */
@@ -29,6 +28,7 @@ public class PocketBattles extends Game {
 	public void render () {
 		this.update();
 		super.render();
+		Game.render();
 	}
 
 	/** DISPOSING */
@@ -36,5 +36,6 @@ public class PocketBattles extends Game {
 	@Override
 	public void dispose() {
 		super.dispose();
+		Game.dispose();
 	}
 }
