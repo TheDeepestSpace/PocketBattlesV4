@@ -9,12 +9,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
  */
 public class UserInterface {
     public static BitmapFont defaultFont;
-    private static String defaultFontPath;
 
     /** INITIALISING */
 
     public static void initialise() {
-        defaultFontPath = "UserInterface/Fonts/defaultFont/defaultFont.fnt";
+        String defaultFontPath = "UserInterface/Fonts/defaultFont/defaultFont.fnt";
         defaultFont = new BitmapFont(Gdx.files.internal(defaultFontPath));
     }
 
