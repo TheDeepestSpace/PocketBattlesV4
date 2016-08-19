@@ -2,6 +2,7 @@ package com.pocketbattles.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.pocketbattles.game.UserInterface.UserInterface;
 import com.pocketbattles.game.Utilities.Utilities;
 
 /**
@@ -15,6 +16,7 @@ public class Game {
 
     public static void initialise() {
         Utilities.initialise();
+        UserInterface.initialise();
         stage = new Stage();
     }
 
@@ -22,6 +24,7 @@ public class Game {
 
     public static void create() {
         Utilities.create();
+        UserInterface.create();
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -29,12 +32,14 @@ public class Game {
 
     public static void update() {
         Utilities.update();
+        UserInterface.update();
         stage.act();
     }
 
     /** RENDERING */
 
     public static void render() {
+        UserInterface.render();
         stage.draw();
     }
 
@@ -42,6 +47,7 @@ public class Game {
 
     public static void dispose() {
         Utilities.dispose();
+        UserInterface.dispose();
         stage.dispose();
     }
 }
