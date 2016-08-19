@@ -1,5 +1,6 @@
 package com.pocketbattles.game.UserInterface;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 /**
@@ -8,11 +9,13 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
  */
 public class UserInterface {
     public static BitmapFont defaultFont;
+    private static String defaultFontPath;
 
     /** INITIALISING */
 
     public static void initialise() {
-        defaultFont = new BitmapFont();
+        defaultFontPath = "UserInterface/Fonts/defaultFont/defaultFont.fnt";
+        defaultFont = new BitmapFont(Gdx.files.internal(defaultFontPath));
     }
 
     /** CREATING AND SETTING UP */
