@@ -32,15 +32,15 @@ public class Game {
 
     public static void update() {
         Utilities.update();
-        UserInterface.update();
         stage.act();
+        UserInterface.update();
     }
 
     /** RENDERING */
 
     public static void render() {
-        UserInterface.render();
         stage.draw();
+        UserInterface.render();
     }
 
     /** DISPOSING */
