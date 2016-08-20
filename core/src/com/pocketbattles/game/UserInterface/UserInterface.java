@@ -13,7 +13,7 @@ public class UserInterface {
     /** INITIALISING */
 
     public static void initialise() {
-        String defaultFontPath = "UserInterface/Fonts/defaultFont/defaultFont.fnt";
+        String defaultFontPath = "UserInterface/Fonts/defaultFont/font16.fnt";
         defaultFont = new BitmapFont(Gdx.files.internal(defaultFontPath));
     }
 
