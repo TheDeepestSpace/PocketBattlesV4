@@ -1,0 +1,62 @@
+{
+    "com.badlogic.gdx.graphics.Color": {
+        "white": { "r": 1, "g": 1, "b": 1, "a": 1 },
+        "black": { "r": 0, "g": 0, "b": 0, "a": 1 },
+        "red":   { "r": 1, "g": 0, "b": 0, "a": 1 },
+        "green": { "r": 0, "g": 1, "b": 0, "a": 1 },
+        "blue":  { "r": 0, "g": 0, "b": 1, "a": 1 }
+    },
+    "com.badlogic.gdx.graphics.g2d.BitmapFont": {
+        "defaultFont8": { "file": "UserInterfaceI/Fonts/defaultFont/font8.fnt" },
+        "defaultFont16": { "file": "UserInterfaceI/Fonts/defaultFont/font16.fnt" },
+        "defaultFont32": { "file": "UserInterfaceI/Fonts/defaultFont/font32.fnt" },
+        "defaultFont64": { "file": "UserInterfaceI/Fonts/defaultFont/font64.fnt" },
+
+        "fancyFont8": { "file": "UserInterface/Fonts/fancyFont/font8.fnt"},
+        "fancyFont16": { "file": "UserInterface/Fonts/fancyFont/font16.fnt"},
+        "fancyFont32": { "file": "UserInterface/Fonts/fancyFont/font32.fnt"},
+        "fancyFont64": { "file": "UserInterface/Fonts/fancyFont/font64.fnt"}
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+        "default8": { "font": "defaultFont8", "fontColor": "black" },
+        "default16": { "font": "defaultFont16", "fontColor": "black" },
+        "default32": { "font": "defaultFont32", "fontColor": "black" },
+        "default64": { "font": "defaultFont64", "fontColor": "black" },
+
+        "fancy8": { "font": "fancyFont8", "fontColor": "black" },
+        "fancy16": { "font": "fancyFont16", "fontColor": "black" },
+        "default": { "font": "fancyFont32", "fontColor": "black" },
+        "fancy64": { "font": "fancyFont64", "fontColor": "black" }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
+        "default8": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "defaultFont8", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+        "default16": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "defaultFont16", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+        "default32": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "defaultFont32", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+        "default64": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "defaultFont64", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+
+        "fancy8": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont8", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+        "fancy16": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont16", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+        "default": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont32", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+        "fancy64": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont64", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0}
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle": {
+        "default": { "checkboxOn": "checkBoxStateOn", "checkboxOff": "checkBoxStateOff", "font": "font1_32", "fontColor": "white" }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
+        "default8": { "titleFont": "defaultFont8", "background": "windowBackground", "titleFontColor": "white" },
+        "default16": { "titleFont": "defaultFont16", "background": "windowBackground", "titleFontColor": "white" },
+        "default32": { "titleFont": "defaultFont32", "background": "windowBackground", "titleFontColor": "white" },
+        "default64": { "titleFont": "defaultFont64", "background": "windowBackground", "titleFontColor": "white" },
+
+        "fancy8": { "titleFont": "fancyFont8", "background": "windowBackground", "titleFontColor": "white" },
+        "fancy16": { "titleFont": "fancyFont16", "background": "windowBackground", "titleFontColor": "white" },
+        "default": { "titleFont": "fancyFont32", "background": "windowBackground", "titleFontColor": "white" },
+        "fancy64": { "titleFont": "fancyFont64", "background": "windowBackground", "titleFontColor": "white" }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle": {
+        "default": { "fontColorUnselected": "white", "selection": "selection", "fontColorSelected": "black", "font": "fancyFont32" }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle": {
+        "default": { "vScroll": "buttonStateUp", "hScrollKnob": "buttonStateUp" }
+    }
+}
