@@ -18,15 +18,7 @@
         "fancyFont64": { "file": "UserInterface/Fonts/fancyFont/font64.fnt"}
     },
     "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
-        "default8": { "font": "defaultFont8", "fontColor": "black" },
-        "default16": { "font": "defaultFont16", "fontColor": "black" },
-        "default32": { "font": "defaultFont32", "fontColor": "black" },
-        "default64": { "font": "defaultFont64", "fontColor": "black" },
-
-        "fancy8": { "font": "fancyFont8", "fontColor": "black" },
-        "fancy16": { "font": "fancyFont16", "fontColor": "black" },
-        "default": { "font": "fancyFont32", "fontColor": "black" },
-        "fancy64": { "font": "fancyFont64", "fontColor": "black" }
+        "default": { "font": "fancyFont32", "fontColor": "black" }
     },
     "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
         "default8": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "defaultFont8", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
