@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.pocketbattles.game.Game;
 
 /**
  * Created by Boris on 16.08.2016.
@@ -14,6 +16,8 @@ public class UserInterface {
     public static TextureAtlas atlas;
     public static Skin skin;
 
+    public static Table screenTable, globalTable;
+
     /** INITIALISING */
 
     public static void initialise() {
@@ -23,12 +27,19 @@ public class UserInterface {
         atlas = new TextureAtlas(Gdx.files.internal(atlasPath));
         String skinPath = "UserInterface/Skin/skin.json";
         skin = new Skin(Gdx.files.internal(skinPath), atlas);
+
+        screenTable = new Table(skin);
+        globalTable = new Table(skin);
     }
 
     /** CREATING AND SETTING UP */
 
     public static void create() {
+        screenTable.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        Game.stage.addActor(screenTable);
 
+        globalTable.setBounds(0, Gdx.graphics.getHeight() - 300, Gdx.graphics.getWidth(), 300);
+        Game.stage.addActor(globalTable);
     }
 
     /** UPDATING */
@@ -49,5 +60,8 @@ public class UserInterface {
         defaultFont.dispose();
         atlas.dispose();
         skin.dispose();
+
+        screenTable.remove();
+        globalTable.remove();
     }
 }
