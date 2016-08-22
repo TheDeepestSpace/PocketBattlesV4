@@ -1,6 +1,7 @@
 package com.pocketbattles.game.UserInterface;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -47,12 +48,15 @@ public class UserInterface {
 
         globalTable.setBounds(0, Gdx.graphics.getHeight() - 300, Gdx.graphics.getWidth(), 300);
         Game.stage.addActor(globalTable);
+        globalTable.add(Label.addInstance("GLOBAL_JAVA_HEAP", "defaultFont64", Color.GREEN)).row();
+        globalTable.add(Label.addInstance("GLOBAL_FPS", "defaultFont64", Color.GREEN));
     }
 
     /** UPDATING */
 
     public static void update() {
-
+        Label.getLable("GLOBAL_JAVA_HEAP").update("Java Heap: " + Gdx.app.getJavaHeap());
+        Label.getLable("GLOBAL_FPS").update("FPS: " + Gdx.graphics.getFramesPerSecond());
     }
 
     /** RENDERING */
