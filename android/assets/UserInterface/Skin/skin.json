@@ -7,10 +7,10 @@
         "blue":  { "r": 0, "g": 0, "b": 1, "a": 1 }
     },
     "com.badlogic.gdx.graphics.g2d.BitmapFont": {
-        "defaultFont8": { "file": "UserInterfaceI/Fonts/defaultFont/font8.fnt" },
-        "defaultFont16": { "file": "UserInterfaceI/Fonts/defaultFont/font16.fnt" },
-        "defaultFont32": { "file": "UserInterfaceI/Fonts/defaultFont/font32.fnt" },
-        "defaultFont64": { "file": "UserInterfaceI/Fonts/defaultFont/font64.fnt" },
+        "defaultFont8": { "file": "UserInterface/Fonts/defaultFont/font8.fnt" },
+        "defaultFont16": { "file": "UserInterface/Fonts/defaultFont/font16.fnt" },
+        "defaultFont32": { "file": "UserInterface/Fonts/defaultFont/font32.fnt" },
+        "defaultFont64": { "file": "UserInterface/Fonts/defaultFont/font64.fnt" },
 
         "fancyFont8": { "file": "UserInterface/Fonts/fancyFont/font8.fnt"},
         "fancyFont16": { "file": "UserInterface/Fonts/fancyFont/font16.fnt"},
@@ -32,7 +32,7 @@
         "fancy64": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont64", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0}
     },
     "com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle": {
-        "default": { "checkboxOn": "checkBoxStateOn", "checkboxOff": "checkBoxStateOff", "font": "font1_32", "fontColor": "white" }
+        "default": { "checkboxOn": "checkBoxStateOn", "checkboxOff": "checkBoxStateOff", "font": "fancyFont32", "fontColor": "white" }
     },
     "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
         "default8": { "titleFont": "defaultFont8", "background": "windowBackground", "titleFontColor": "white" },
