@@ -79,7 +79,7 @@ public class UserInterface {
     }
 
     private static void disposeUIActors() {
-        Label.disposeClass();
         Label.disposeInstances();
+        Label.disposeClass();
     }
 }
