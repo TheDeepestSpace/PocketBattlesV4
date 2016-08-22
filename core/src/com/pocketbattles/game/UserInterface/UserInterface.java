@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.pocketbattles.game.Game;
+import com.pocketbattles.game.UserInterface.Actors.Label;
 
 /**
  * Created by Boris on 16.08.2016.
@@ -28,8 +29,14 @@ public class UserInterface {
         String skinPath = "UserInterface/Skin/skin.json";
         skin = new Skin(Gdx.files.internal(skinPath), atlas);
 
+        initialiseUIActors();
+
         screenTable = new Table(skin);
         globalTable = new Table(skin);
+    }
+
+    private static void initialiseUIActors() {
+        Label.initialiseClass();
     }
 
     /** CREATING AND SETTING UP */
@@ -61,7 +68,14 @@ public class UserInterface {
         atlas.dispose();
         skin.dispose();
 
+        disposeUIActors();
+
         screenTable.remove();
         globalTable.remove();
+    }
+
+    private static void disposeUIActors() {
+        Label.disposeClass();
+        Label.disposeInstances();
     }
 }
