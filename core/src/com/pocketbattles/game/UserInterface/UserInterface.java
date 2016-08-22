@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.pocketbattles.game.Game;
 import com.pocketbattles.game.UserInterface.Actors.Label;
+import com.pocketbattles.game.Utilities.Console;
 
 /**
  * Created by Boris on 16.08.2016.
@@ -30,6 +31,7 @@ public class UserInterface {
         String skinPath = "UserInterface/Skin/skin.json";
         skin = new Skin(Gdx.files.internal(skinPath), atlas);
 
+        Console.initialiseClass();
         initialiseUIActors();
 
         screenTable = new Table(skin);
