@@ -26,7 +26,7 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
     /** CREATING AND SETTING UP */
 
     public static Label addInstance(String name, Vector2 position, String fontName, Color textColor) {
-        if (nameAvalable(name)) {
+        if (nameAvailable(name)) {
             Label l = new Label("n/a", UserInterface.skin, fontName, textColor);
             l.setPosition(position.x, position.y);
             l.setUp(name);
@@ -36,7 +36,7 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
     }
 
     public static Label addInstance(String name, String text, Vector2 position, String fontName, Color textColor) {
-        if (nameAvalable(name)) {
+        if (nameAvailable(name)) {
             Label l = new Label(text, UserInterface.skin, fontName, textColor);
             l.setPosition(position.x, position.y);
             l.setUp(name);
@@ -46,7 +46,7 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
     }
 
     public static Label addInstance(String name, String fontName, Color textColor) {
-        if (nameAvalable(name)) {
+        if (nameAvailable(name)) {
             Label l = new Label("n/a", UserInterface.skin, fontName, textColor);
             l.setUp(name);
             list.add(l);
@@ -55,7 +55,7 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
     }
 
     public static Label addInstance(String name, String text, String fontName, Color textColor) {
-        if (nameAvalable(name)) {
+        if (nameAvailable(name)) {
             Label l = new Label(text, UserInterface.skin, fontName, textColor);
             l.setUp(name);
             list.add(l);
@@ -92,7 +92,7 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
         return null;
     }
 
-    private static boolean nameAvalable(String name) {
+    private static boolean nameAvailable(String name) {
         for (int i = 0; i < list.size(); i++) {
             if (name.equals(list.get(i).name)) return false;
         }
