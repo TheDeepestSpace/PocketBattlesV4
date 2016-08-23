@@ -15,17 +15,17 @@ public class Game {
     /** INITIALISING */
 
     public static void initialise() {
+        stage = new Stage();
         Utilities.initialise();
         UserInterface.initialise();
-        stage = new Stage();
     }
 
     /** CREATING AND SETTING UP */
 
     public static void create() {
         Utilities.create();
-        UserInterface.create();
         Gdx.input.setInputProcessor(stage);
+        UserInterface.create();
     }
 
     /** UPDATING */
