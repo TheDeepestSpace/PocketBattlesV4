@@ -50,8 +50,9 @@ public class UserInterface {
 
         globalTable.setBounds(0, Gdx.graphics.getHeight() - 300, Gdx.graphics.getWidth(), 300);
         Game.stage.addActor(globalTable);
-        globalTable.add(Label.addInstance("GLOBAL_JAVA_HEAP", "defaultFont64", Color.GREEN)).row();
-        globalTable.add(Label.addInstance("GLOBAL_FPS", "defaultFont64", Color.GREEN));
+        globalTable.add(Label.addInstance("GLOBAL_JAVA_HEAP", "defaultFont64", Color.GREEN)).left().growX().row();
+        globalTable.add(Label.addInstance("GLOBAL_FPS", "defaultFont64", Color.GREEN)).left().row();
+        globalTable.add().growY();
     }
 
     /** UPDATING */
