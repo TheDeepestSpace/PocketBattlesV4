@@ -58,8 +58,8 @@ public class UserInterface {
     /** UPDATING */
 
     public static void update() {
-        Label.getLable("GLOBAL_JAVA_HEAP").update("Java Heap: " + Gdx.app.getJavaHeap());
-        Label.getLable("GLOBAL_FPS").update("FPS: " + Gdx.graphics.getFramesPerSecond());
+        Label.getLabel("GLOBAL_JAVA_HEAP").update("Java Heap: " + Gdx.app.getJavaHeap());
+        Label.getLabel("GLOBAL_FPS").update("FPS: " + Gdx.graphics.getFramesPerSecond());
     }
 
     /** RENDERING */

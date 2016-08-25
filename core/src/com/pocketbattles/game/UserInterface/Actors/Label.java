@@ -82,7 +82,7 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
 
     /** GETTERS / SETTERS */
 
-    public static Label getLable(String name) {
+    public static Label getLabel(String name) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).name.equals(name)) {
                 return list.get(i);
