@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.pocketbattles.game.Game;
 import com.pocketbattles.game.UserInterface.Actors.Label;
+import com.pocketbattles.game.UserInterface.Actors.TextButton;
 import com.pocketbattles.game.Utilities.Console;
 
 /**
@@ -40,6 +41,7 @@ public class UserInterface {
 
     private static void initialiseUIActors() {
         Label.initialiseClass();
+        TextButton.initialiseClass();
     }
 
     /** CREATING AND SETTING UP */
@@ -84,5 +86,7 @@ public class UserInterface {
     private static void disposeUIActors() {
         Label.disposeInstances();
         Label.disposeClass();
+        TextButton.disposeInstances();
+        TextButton.disposeClass();
     }
 }
