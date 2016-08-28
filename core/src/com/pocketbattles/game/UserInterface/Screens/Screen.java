@@ -13,6 +13,7 @@ public class Screen implements ScreenInterface {
     public PocketBattles game;
     public Screen(PocketBattles game) {
         this.game = game;
+        this.initialise();
     }
 
     @Override
