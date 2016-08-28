@@ -1,6 +1,7 @@
 package com.pocketbattles.game.UserInterface.Screens.MainScreen;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.pocketbattles.game.UserInterface.Actors.Label;
 import com.pocketbattles.game.UserInterface.Actors.TextButton;
@@ -17,6 +18,11 @@ public class UI {
     public static void setUp() {
         UserInterface.screenTable.reset();
         UserInterface.screenTable.add(Label.addInstance("MAIN_SCREEN_TITLE", "POCKET BATTLES V4", "fancyFont64", Color.GREEN)).row();
-        UserInterface.screenTable.add(TextButton.addInstance("MAIN_SCREEN_TEST_BUTTON", "TEST", 40, new ClickListener()));
+        Table mainMenuButtonsTable = new Table(UserInterface.skin);
+        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_TEST_BUTTON", "START", 40, new ClickListener())).fill();
+        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_TEST_BUTTON", "UPGRADE", 40, new ClickListener())).fill().row();
+        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_TEST_BUTTON", "SETTINGS", 40, new ClickListener())).fill();
+        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_TEST_BUTTON", "EXIT", 40, new ClickListener())).fill();
+        UserInterface.screenTable.add(mainMenuButtonsTable);
     }
 }
