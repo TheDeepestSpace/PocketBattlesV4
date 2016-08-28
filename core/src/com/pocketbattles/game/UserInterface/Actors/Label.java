@@ -114,9 +114,14 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
         }
     }
 
+    public static void disposeInstance(String name) {
+        getLabel(name).dispose();
+    }
+
     private void dispose() {
         this.clear();
         this.remove();
+        list.remove(this);
         this.name = null;
     }
 }
