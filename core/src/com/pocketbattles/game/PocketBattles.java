@@ -1,12 +1,14 @@
 package com.pocketbattles.game;
 
 import com.pocketbattles.game.UserInterface.Screens.MainScreen.MainScreen;
+import com.pocketbattles.game.UserInterface.Screens.SettingsScreen.SettingsScreen;
 
 public class PocketBattles extends com.badlogic.gdx.Game {
 
 	/* SCREENS */
 
 	public static MainScreen mainScreen;
+	public static SettingsScreen settingsScreen;
 
 	/** INITIALISING */
 
@@ -17,10 +19,16 @@ public class PocketBattles extends com.badlogic.gdx.Game {
 
 	private void initialiseScreens() {
 		mainScreen = new MainScreen(this);
+		settingsScreen = new SettingsScreen(this);
 	}
 
 	public void setMainScreen() {
 		setScreen(mainScreen);
+		System.gc();
+	}
+
+	public void setSettingsScreen() {
+		setScreen(settingsScreen);
 		System.gc();
 	}
 
