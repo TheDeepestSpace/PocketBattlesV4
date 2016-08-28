@@ -25,45 +25,45 @@ public class TextButton extends com.badlogic.gdx.scenes.scene2d.ui.TextButton {
     /** CREATING AND SETTING UP */
 
     public static TextButton addInstance(String name, String text, ClickListener clickListener) {
-        TextButton button = new TextButton(text, UserInterface.skin);
-        button.setUp(name);
-        button.addListener(clickListener);
-
-        list.add(button);
-
-        return button;
+        if (nameAvailable(name)) {
+            TextButton button = new TextButton(text, UserInterface.skin);
+            button.setUp(name);
+            button.addListener(clickListener);
+            list.add(button);
+            return button;
+        }else return null;
     }
 
     public static TextButton addInstance(String name, String text, String style, ClickListener clickListener) {
-        TextButton button = new TextButton(text, UserInterface.skin, style);
-        button.setUp(name);
-        button.addListener(clickListener);
-
-        list.add(button);
-
-        return button;
+        if (nameAvailable(name)) {
+            TextButton button = new TextButton(text, UserInterface.skin, style);
+            button.setUp(name);
+            button.addListener(clickListener);
+            list.add(button);
+            return button;
+        }else return null;
     }
 
     public static TextButton addInstance(String name, String text, int pad, ClickListener clickListener) {
-        TextButton button = new TextButton(text, UserInterface.skin);
-        button.setUp(name);
-        button.addListener(clickListener);
-        button.pad(pad);
-
-        list.add(button);
-
-        return button;
+        if (nameAvailable(name)) {
+            TextButton button = new TextButton(text, UserInterface.skin);
+            button.setUp(name);
+            button.addListener(clickListener);
+            button.pad(pad);
+            list.add(button);
+            return button;
+        } else return null;
     }
 
     public static TextButton addInstance(String name, String text, String style, int pad, ClickListener clickListener) {
-        TextButton button = new TextButton(text, UserInterface.skin, style);
-        button.setUp(name);
-        button.addListener(clickListener);
-        button.pad(pad);
-
-        list.add(button);
-
-        return button;
+        if (nameAvailable(name)) {
+            TextButton button = new TextButton(text, UserInterface.skin, style);
+            button.setUp(name);
+            button.addListener(clickListener);
+            button.pad(pad);
+            list.add(button);
+            return button;
+        } else return null;
     }
 
     public TextButton(String text, Skin skin, String styleName) {
@@ -115,6 +115,10 @@ public class TextButton extends com.badlogic.gdx.scenes.scene2d.ui.TextButton {
         for (int i = 0; i < list.size(); i++) {
             list.get(i).dispose();
         }
+    }
+
+    public static void disposeInstance(String name) {
+        getButton(name).dispose();
     }
 
     private void dispose() {
