@@ -18,6 +18,8 @@ public class MainScreen extends Screen {
     @Override
     public void initialise() {
         super.initialise();
+        UI.initialise();
+        UI.setUp();
     }
 
     /** CREATING AND SETTING UP */
@@ -25,7 +27,7 @@ public class MainScreen extends Screen {
     @Override
     public void show() {
         super.show();
-        UI.setUp();
+        UI.set();
     }
 
     /** UPDATING */
@@ -69,5 +71,6 @@ public class MainScreen extends Screen {
     @Override
     public void dispose() {
         super.dispose();
+        UI.dispose();
     }
 }
