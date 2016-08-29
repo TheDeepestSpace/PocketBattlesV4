@@ -29,7 +29,12 @@ public class UI {
         localScreenTable.add(Label.addInstance("MAIN_SCREEN_TITLE", "POCKET BATTLES V4", "fancyFont64", Color.GREEN)).row();
         localScreenTable.add().height(40).row();
         Table mainMenuButtonsTable = new Table(UserInterface.skin);
-        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_START_BUTTON", "START", 40, new ClickListener())).fill();
+        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_START_BUTTON", "START", 40, new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                PocketBattles.mainScreen.game.setGameScreen();
+            }
+        })).fill();
         mainMenuButtonsTable.add().width(40);
         mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_UPGRADE_BUTTON", "UPGRADE", 40, new ClickListener() {
             @Override
