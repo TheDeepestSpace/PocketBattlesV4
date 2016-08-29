@@ -1,5 +1,6 @@
 package com.pocketbattles.game.UserInterface.Screens.MainScreen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -44,7 +45,12 @@ public class UI {
             }
         })).fill();
         mainMenuButtonsTable.add();
-        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_EXIT_BUTTON", "EXIT", 40, new ClickListener())).fill();
+        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_EXIT_BUTTON", "EXIT", 40, new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.app.exit();
+            }
+        })).fill();
         localScreenTable.add(mainMenuButtonsTable);
     }
 
