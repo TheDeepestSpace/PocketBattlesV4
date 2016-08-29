@@ -2,6 +2,7 @@ package com.pocketbattles.game;
 
 import com.pocketbattles.game.UserInterface.Screens.MainScreen.MainScreen;
 import com.pocketbattles.game.UserInterface.Screens.SettingsScreen.SettingsScreen;
+import com.pocketbattles.game.UserInterface.Screens.UpgradeScreen.UpgradeScreen;
 
 public class PocketBattles extends com.badlogic.gdx.Game {
 
@@ -9,6 +10,7 @@ public class PocketBattles extends com.badlogic.gdx.Game {
 
 	public static MainScreen mainScreen;
 	public static SettingsScreen settingsScreen;
+	public static UpgradeScreen upgradeScreen;
 
 	/** INITIALISING */
 
@@ -20,6 +22,7 @@ public class PocketBattles extends com.badlogic.gdx.Game {
 	private void initialiseScreens() {
 		mainScreen = new MainScreen(this);
 		settingsScreen = new SettingsScreen(this);
+		upgradeScreen = new UpgradeScreen(this);
 	}
 
 	public void setMainScreen() {
@@ -29,6 +32,11 @@ public class PocketBattles extends com.badlogic.gdx.Game {
 
 	public void setSettingsScreen() {
 		setScreen(settingsScreen);
+		System.gc();
+	}
+
+	public void setUpgradeScreen() {
+		setScreen(upgradeScreen);
 		System.gc();
 	}
 

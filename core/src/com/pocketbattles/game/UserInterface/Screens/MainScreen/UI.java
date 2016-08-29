@@ -30,7 +30,12 @@ public class UI {
         Table mainMenuButtonsTable = new Table(UserInterface.skin);
         mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_START_BUTTON", "START", 40, new ClickListener())).fill();
         mainMenuButtonsTable.add().width(40);
-        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_UPGRADE_BUTTON", "UPGRADE", 40, new ClickListener())).fill().row();
+        mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_UPGRADE_BUTTON", "UPGRADE", 40, new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                PocketBattles.mainScreen.game.setUpgradeScreen();
+            }
+        })).fill().row();
         mainMenuButtonsTable.add().height(40).row();
         mainMenuButtonsTable.add(TextButton.addInstance("MAIN_SCREEN_SETTINGS_BUTTON", "SETTINGS", 40, new ClickListener() {
             @Override
