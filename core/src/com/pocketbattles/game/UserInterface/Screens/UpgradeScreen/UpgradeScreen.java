@@ -1,7 +1,6 @@
 package com.pocketbattles.game.UserInterface.Screens.UpgradeScreen;
 
 import com.pocketbattles.game.PocketBattles;
-import com.pocketbattles.game.UserInterface.Screens.MainScreen.*;
 import com.pocketbattles.game.UserInterface.Screens.Screen;
 
 /**
@@ -36,6 +35,7 @@ public class UpgradeScreen extends Screen {
     @Override
     public void update(float delta) {
         super.update(delta);
+        UI.update();
     }
 
     /** RENDERING */

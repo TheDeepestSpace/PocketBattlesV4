@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.pocketbattles.game.Game;
 import com.pocketbattles.game.PocketBattles;
 import com.pocketbattles.game.UserInterface.Actors.Label;
 import com.pocketbattles.game.UserInterface.Actors.TextButton;
@@ -25,8 +26,13 @@ public class UI {
     /** CREATING AND SETTING */
 
     public static void setUp() {
-        localScreenTable.add(Label.addInstance("UPGRADE_SCREEN_TITLE", "UPGRADE", "fancyFont32", Color.GREEN)).row();
-        localScreenTable.add().height(300).row();
+        localScreenTable.add().width(100);
+        localScreenTable.add(Label.addInstance("UPGRADE_SCREEN_TITLE", "UPGRADE", "fancyFont32", Color.GREEN));
+        localScreenTable.add().width(100).row();
+        localScreenTable.add().height(300);
+        localScreenTable.add();
+        localScreenTable.add(Label.addInstance("UPGRADE_SCREEN_GOLD_AMOUNT", "fancyFont16", Color.GOLD)).left().row();
+        localScreenTable.add();
         localScreenTable.add(TextButton.addInstance("UPGRADE_SCREEN_BACK_TO_MAIN_SCREEN_BUTTON", "BACK", 40, new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -37,6 +43,12 @@ public class UI {
 
     public static void set() {
         UserInterface.screenTable.add(localScreenTable);
+    }
+
+    /** UPDATING */
+
+    public static void update() {
+        Label.getLabel("UPGRADE_SCREEN_GOLD_AMOUNT").update("GOLD:" + Game.GOLD_AMOUNT);
     }
 
     /** DISPOSING */
