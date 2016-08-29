@@ -29,7 +29,9 @@
         "fancy8": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont8", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
         "fancy16": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont16", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
         "default": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont32", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
-        "fancy64": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont64", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0}
+        "fancy64": { "up": "buttonStateUp", "down": "buttonStateDown", "font": "fancyFont64", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0},
+
+        "toggle": { "up": "buttonStateUp", "down": "buttonStateDown", "checked": "buttonStateDown","font": "fancyFont32", "fontColor": "black", "unpressedOffsetY": 0, "pressedOffsetY": 0}
     },
     "com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle": {
         "default": { "checkboxOn": "checkBoxStateOn", "checkboxOff": "checkBoxStateOff", "font": "fancyFont32", "fontColor": "white" }
