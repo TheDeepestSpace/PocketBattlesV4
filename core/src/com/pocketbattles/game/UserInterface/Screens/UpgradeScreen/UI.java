@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.pocketbattles.game.Game;
 import com.pocketbattles.game.PocketBattles;
+import com.pocketbattles.game.UserInterface.Actors.Image;
 import com.pocketbattles.game.UserInterface.Actors.Label;
 import com.pocketbattles.game.UserInterface.Actors.TextButton;
 import com.pocketbattles.game.UserInterface.UserInterface;
@@ -62,7 +63,7 @@ public class UI {
 
         Table upgradesTable = new Table(UserInterface.skin);
         upgradesTable.add(entityListScrollPane);
-        upgradesTable.add().width(350);
+        upgradesTable.add(Image.addInstance("UPGRADE_SCREEN_TEST_IMAGE", "badlogic.jpg")).width(300);
 
         localScreenTable.add(upgradesTable).height(300);
         localScreenTable.add(Label.addInstance("UPGRADE_SCREEN_GOLD_AMOUNT", "fancyFont16", Color.GOLD)).left().row();
