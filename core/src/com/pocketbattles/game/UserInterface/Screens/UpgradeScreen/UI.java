@@ -27,7 +27,7 @@ public class UI {
     public static void initialise() {
         localScreenTable = new Table(UserInterface.skin);
 
-        upgradeEntityImageMultiplier = 3.5f;
+        upgradeEntityImageMultiplier = 1f;
     }
 
     /** CREATING AND SETTING */
@@ -38,6 +38,9 @@ public class UI {
         localScreenTable.add().row();
         localScreenTable.add().height(50).row();
         localScreenTable.add().height(300);
+
+        final Table upgradesTableImageTable = new Table(UserInterface.skin);
+        upgradesTableImageTable.add(Image.addInstance("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE", "image.png"));
 
         Table entityListTable = new Table(UserInterface.skin);
         entityListTable.add(TextButton.addInstance("UPGRADE_SCREEN_ENTITY_LIST_TABLE_ENTITY1", "ENTITY1", "toggle", 40, new ClickListener() {
@@ -52,7 +55,12 @@ public class UI {
                 Image.getImage("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE").setTexture("image2.png");
             }
         })).fill().row();
-        entityListTable.add(TextButton.addInstance("UPGRADE_SCREEN_ENTITY_LIST_TABLE_ENTITY3", "ENTITY3", "toggle", 40, new ClickListener())).fill().row();
+        entityListTable.add(TextButton.addInstance("UPGRADE_SCREEN_ENTITY_LIST_TABLE_ENTITY3", "ENTITY3", "toggle", 40, new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Image.getImage("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE").setTexture("image3.png");
+            }
+        })).fill().row();
         entityListTable.add(TextButton.addInstance("UPGRADE_SCREEN_ENTITY_LIST_TABLE_ENTITY4", "ENTITY4", "toggle", 40, new ClickListener())).fill().row();
         entityListTable.add(TextButton.addInstance("UPGRADE_SCREEN_ENTITY_LIST_TABLE_ENTITY5", "ENTITY5", "toggle", 40, new ClickListener())).fill().row();
         entityListTable.add(TextButton.addInstance("UPGRADE_SCREEN_ENTITY_LIST_TABLE_ENTITY6", "ENTITY6", "toggle", 40, new ClickListener())).fill().row();
@@ -77,9 +85,7 @@ public class UI {
 
         Table upgradesTable = new Table(UserInterface.skin);
         upgradesTable.add(entityListScrollPane);
-        upgradesTable.add(Image.addInstance("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE", "image.png"));
-        upgradesTable.getCell(Image.getImage("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE")).height(Image.getImage("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE").getHeight() * upgradeEntityImageMultiplier);
-        upgradesTable.getCell(Image.getImage("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE")).width(Image.getImage("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE").getWidth() * upgradeEntityImageMultiplier);
+        upgradesTable.add(upgradesTableImageTable).width(200).fill();
 
         localScreenTable.add(upgradesTable).height(300);
         localScreenTable.add(Label.addInstance("UPGRADE_SCREEN_GOLD_AMOUNT", "fancyFont16", Color.GOLD)).left().row();
