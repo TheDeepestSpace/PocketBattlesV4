@@ -69,6 +69,8 @@ public class Image extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
     public void setTexture(String path) {
         Texture t = new Texture(path);
+        this.setWidth(t.getWidth());
+        this.setHeight(t.getHeight());
         this.setDrawable(new SpriteDrawable(new Sprite(t)));
     }
 
