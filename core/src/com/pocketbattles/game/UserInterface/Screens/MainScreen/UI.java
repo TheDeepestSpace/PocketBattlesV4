@@ -42,11 +42,13 @@ public class UI {
                         "START",
                         40,
                         new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                PocketBattles.mainScreen.game.setGameScreen();
-            }
-        })).fill();
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                PocketBattles.mainScreen.game.setGameScreen();
+                            }
+                        }
+                )
+        ).fill();
         mainMenuButtonsTable.add().width(40);
         mainMenuButtonsTable.add(
                 TextButton.addInstance(
@@ -54,11 +56,13 @@ public class UI {
                         "UPGRADE",
                         40,
                         new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                PocketBattles.mainScreen.game.setUpgradeScreen();
-            }
-        })).fill().row();
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                PocketBattles.mainScreen.game.setUpgradeScreen();
+                            }
+                        }
+                )
+        ).fill().row();
         mainMenuButtonsTable.add().height(40).row();
         mainMenuButtonsTable.add(
                 TextButton.addInstance(
@@ -66,11 +70,13 @@ public class UI {
                         "SETTINGS",
                         40,
                         new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                PocketBattles.mainScreen.game.setSettingsScreen();
-            }
-        })).fill();
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                PocketBattles.mainScreen.game.setSettingsScreen();
+                            }
+                        }
+                )
+        ).fill();
         mainMenuButtonsTable.add();
         mainMenuButtonsTable.add(
                 TextButton.addInstance(
@@ -78,11 +84,13 @@ public class UI {
                         "EXIT",
                         40,
                         new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.exit();
-            }
-        })).fill();
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                Gdx.app.exit();
+                            }
+                        }
+                )
+        ).fill();
         localScreenTable.add(mainMenuButtonsTable);
     }
 

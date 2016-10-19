@@ -39,8 +39,8 @@ public class UI {
 
         final Table upgradesTableImageTable = new Table(UserInterface.skin);
         upgradesTableImageTable.add(
-                Image.addInstance("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE", "badlogic.jpg")
-        );
+                Image.addInstance("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE", "empty.jpg")
+        ).center();
 
         Table entityListTable = new Table(UserInterface.skin);
         for (int i = 0; i < Game.entityClassesNames.size(); i++) {
@@ -52,17 +52,19 @@ public class UI {
                             "toggle",
                             40,
                             new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    Image.getImage(
-                            "UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE")
-                            .setTexture(
-                                    "Entities/"
-                                            + Game.entityClassesNames.get(finalI)
-                                            + "/initial.png"
-                            );
-                }
-            })).fill().row();
+                                @Override
+                                public void clicked(InputEvent event, float x, float y) {
+                                    Image.getImage(
+                                            "UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE")
+                                            .setTexture(
+                                                    "Entities/"
+                                                            + Game.entityClassesNames.get(finalI)
+                                                            + "/initial.png"
+                                            );
+                                }
+                            }
+                    )
+            ).fill().row();
         }
 
         ButtonGroup entityListButtonGroup = new ButtonGroup();
@@ -81,7 +83,7 @@ public class UI {
 
         Table upgradesTable = new Table(UserInterface.skin);
         upgradesTable.add(entityListScrollPane);
-        upgradesTable.add(upgradesTableImageTable).width(200).fill();
+        upgradesTable.add(upgradesTableImageTable).width(400).fill();
 
         localScreenTable.add(upgradesTable).height(300);
         localScreenTable.add(
@@ -97,11 +99,13 @@ public class UI {
                         "BACK",
                         40,
                         new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                PocketBattles.upgradeScreen.game.setMainScreen();
-            }
-        }));
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                PocketBattles.upgradeScreen.game.setMainScreen();
+                            }
+                        }
+                )
+        );
     }
 
     public static void set() {

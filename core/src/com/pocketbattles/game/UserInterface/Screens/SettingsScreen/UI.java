@@ -40,11 +40,13 @@ public class UI {
                         "BACK",
                         40,
                         new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                PocketBattles.settingsScreen.game.setMainScreen();
-            }
-        }));
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                PocketBattles.settingsScreen.game.setMainScreen();
+                            }
+                        }
+                )
+        );
     }
 
     public static void set() {
