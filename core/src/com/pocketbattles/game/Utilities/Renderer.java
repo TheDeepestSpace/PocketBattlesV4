@@ -15,7 +15,12 @@ public class Renderer {
     public static void renderTextLine(String text, Vector2 screenPosition, Color textColor) {
         Utilities.spriteBatch.begin();
         UserInterface.defaultFont.setColor(textColor);
-        UserInterface.defaultFont.draw(Utilities.spriteBatch, text, screenPosition.x, screenPosition.y);
+        UserInterface.defaultFont.draw(
+                Utilities.spriteBatch,
+                text,
+                screenPosition.x,
+                screenPosition.y
+        );
         Utilities.spriteBatch.end();
     }
 }

@@ -163,7 +163,11 @@ public class Console {
     private void render() {
         if (this.rendering) {
             for (int i = 0; i < this.strings.size(); i++) {
-                Renderer.renderTextLine(this.strings.get(i), this.stringsPositions.get(i), this.stringsColors.get(i));
+                Renderer.renderTextLine(
+                        this.strings.get(i),
+                        this.stringsPositions.get(i),
+                        this.stringsColors.get(i)
+                );
             }
         }
     }

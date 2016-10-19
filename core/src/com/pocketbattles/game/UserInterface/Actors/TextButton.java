@@ -34,7 +34,9 @@ public class TextButton extends com.badlogic.gdx.scenes.scene2d.ui.TextButton {
         }else return null;
     }
 
-    public static TextButton addInstance(String name, String text, String style, ClickListener clickListener) {
+    public static TextButton addInstance(
+            String name, String text, String style, ClickListener clickListener
+    ) {
         if (nameAvailable(name)) {
             TextButton button = new TextButton(text, UserInterface.skin, style);
             button.setUp(name);
@@ -44,7 +46,9 @@ public class TextButton extends com.badlogic.gdx.scenes.scene2d.ui.TextButton {
         }else return null;
     }
 
-    public static TextButton addInstance(String name, String text, int pad, ClickListener clickListener) {
+    public static TextButton addInstance(
+            String name, String text, int pad, ClickListener clickListener
+    ) {
         if (nameAvailable(name)) {
             TextButton button = new TextButton(text, UserInterface.skin);
             button.setUp(name);
@@ -55,7 +59,9 @@ public class TextButton extends com.badlogic.gdx.scenes.scene2d.ui.TextButton {
         } else return null;
     }
 
-    public static TextButton addInstance(String name, String text, String style, int pad, ClickListener clickListener) {
+    public static TextButton addInstance(
+            String name, String text, String style, int pad, ClickListener clickListener
+    ) {
         if (nameAvailable(name)) {
             TextButton button = new TextButton(text, UserInterface.skin, style);
             button.setUp(name);

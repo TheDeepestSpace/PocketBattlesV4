@@ -25,9 +25,21 @@ public class UI {
     /** CREATING AND SETTING UP */
 
     public static void setUp() {
-        localScreenTable.add(Label.addInstance("SETTINGS_SCREEN_TITLE", "SETTINGS", "fancyFont32", Color.GREEN)).row();
+        localScreenTable.add(
+                Label.addInstance(
+                        "SETTINGS_SCREEN_TITLE",
+                        "SETTINGS",
+                        "fancyFont32",
+                        Color.GREEN
+                )
+        ).row();
         localScreenTable.add().height(300).row();
-        localScreenTable.add(TextButton.addInstance("SETTINGS_SCREEN_BACK_TO_MAIN_SCREEN_BUTTON", "BACK", 40, new ClickListener() {
+        localScreenTable.add(
+                TextButton.addInstance(
+                        "SETTINGS_SCREEN_BACK_TO_MAIN_SCREEN_BUTTON",
+                        "BACK",
+                        40,
+                        new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 PocketBattles.settingsScreen.game.setMainScreen();

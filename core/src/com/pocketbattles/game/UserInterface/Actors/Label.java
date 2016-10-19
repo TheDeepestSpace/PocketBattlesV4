@@ -25,7 +25,9 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
 
     /** CREATING AND SETTING UP */
 
-    public static Label addInstance(String name, Vector2 position, String fontName, Color textColor) {
+    public static Label addInstance(
+            String name, Vector2 position, String fontName, Color textColor
+    ) {
         if (nameAvailable(name)) {
             Label l = new Label("n/a", UserInterface.skin, fontName, textColor);
             l.setPosition(position.x, position.y);
@@ -35,7 +37,9 @@ public class Label extends com.badlogic.gdx.scenes.scene2d.ui.Label {
         }else return null;
     }
 
-    public static Label addInstance(String name, String text, Vector2 position, String fontName, Color textColor) {
+    public static Label addInstance(
+            String name, String text, Vector2 position, String fontName, Color textColor
+    ) {
         if (nameAvailable(name)) {
             Label l = new Label(text, UserInterface.skin, fontName, textColor);
             l.setPosition(position.x, position.y);
