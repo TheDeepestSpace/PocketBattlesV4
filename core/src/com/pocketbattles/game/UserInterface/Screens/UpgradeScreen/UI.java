@@ -19,6 +19,7 @@ import com.pocketbattles.game.UserInterface.UserInterface;
  */
 public class UI {
     private static Table localScreenTable;
+    private static final float upgradeTableImageScale = 1.5f;
 
     /** INITIALISING */
 
@@ -55,12 +56,13 @@ public class UI {
                                 @Override
                                 public void clicked(InputEvent event, float x, float y) {
                                     Image.getImage(
-                                            "UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE")
-                                            .setTexture(
-                                                    "Entities/"
-                                                            + Game.entityClassesNames.get(finalI)
-                                                            + "/initial.png"
-                                            );
+                                            "UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE"
+                                    ).setTexture(
+                                            "Entities/"
+                                                    + Game.entityClassesNames.get(finalI)
+                                                    + "/initial.png",
+                                            upgradeTableImageScale
+                                    );
                                 }
                             }
                     )
@@ -85,7 +87,7 @@ public class UI {
         upgradesTable.add(entityListScrollPane);
         upgradesTable.add(upgradesTableImageTable).width(400).fill();
 
-        localScreenTable.add(upgradesTable).height(300);
+        localScreenTable.add(upgradesTable).height(400);
         localScreenTable.add(
                 Label.addInstance(
                         "UPGRADE_SCREEN_GOLD_AMOUNT", "fancyFont16", Color.GOLD
