@@ -40,7 +40,7 @@ public class Image extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
     private void setUp(String name) {
         this.name = name;
-        this.setScale(1, 1);
+        this.setScale(1f, 1f);
     }
 
     /** UPDATING */
@@ -72,6 +72,15 @@ public class Image extends com.badlogic.gdx.scenes.scene2d.ui.Image {
         this.setWidth(t.getWidth());
         this.setHeight(t.getHeight());
         this.setDrawable(new SpriteDrawable(new Sprite(t)));
+    }
+
+    public void setTexture(String path, float scale) {
+        Texture t = new Texture(path);
+        this.setWidth(t.getWidth());
+        this.setHeight(t.getHeight());
+        this.setDrawable(new SpriteDrawable(new Sprite(t)));
+        this.getDrawable().setMinWidth(t.getWidth() * scale);
+        this.getDrawable().setMinHeight(t.getHeight() * scale);
     }
 
     /** RENDERING */
