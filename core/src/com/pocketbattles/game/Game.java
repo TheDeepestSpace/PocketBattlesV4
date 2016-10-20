@@ -23,6 +23,7 @@ public class Game {
     public static void initialise() {
         gamePreferences = Gdx.app.getPreferences("GAME_PREFERENCES");
         stage = new Stage();
+        stage.setDebugAll(true);
         Utilities.initialise();
         UserInterface.initialise();
 
