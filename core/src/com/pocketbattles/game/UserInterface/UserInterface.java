@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.pocketbattles.game.Game;
+import com.pocketbattles.game.UserInterface.Actors.UpgradeEntityImageButton;
 import com.pocketbattles.game.UserInterface.Actors.Image;
 import com.pocketbattles.game.UserInterface.Actors.Label;
 import com.pocketbattles.game.UserInterface.Actors.TextButton;
@@ -43,6 +44,7 @@ public class UserInterface {
     private static void initialiseUIActors() {
         Label.initialiseClass();
         TextButton.initialiseClass();
+        UpgradeEntityImageButton.initialiseClass();
         Image.initialiseClass();
     }
 
@@ -102,6 +104,8 @@ public class UserInterface {
         Label.disposeClass();
         TextButton.disposeInstances();
         TextButton.disposeClass();
+        UpgradeEntityImageButton.disposeInstances();
+        UpgradeEntityImageButton.disposeClass();
         Image.disposeInstances();
         Image.disposeClass();
     }
