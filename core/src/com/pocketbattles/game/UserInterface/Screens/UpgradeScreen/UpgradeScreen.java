@@ -18,8 +18,8 @@ public class UpgradeScreen extends Screen {
     @Override
     public void initialise() {
         super.initialise();
-        UI.initialise();
-        UI.setUp();
+        UItest.initialise();
+        UItest.setUp();
     }
 
     /** CREATING AND SETTING UP */
@@ -27,7 +27,7 @@ public class UpgradeScreen extends Screen {
     @Override
     public void show() {
         super.show();
-        UI.set();
+        UItest.set();
     }
 
     /** UPDATING */
@@ -35,7 +35,7 @@ public class UpgradeScreen extends Screen {
     @Override
     public void update(float delta) {
         super.update(delta);
-        UI.update();
+        UItest.update();
     }
 
     /** RENDERING */
@@ -72,6 +72,6 @@ public class UpgradeScreen extends Screen {
     @Override
     public void dispose() {
         super.dispose();
-        UI.dispose();
+        UItest.dispose();
     }
 }
