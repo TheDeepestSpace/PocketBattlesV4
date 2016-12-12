@@ -59,7 +59,6 @@ public class UpgradeEntityImageButton extends com.badlogic.gdx.scenes.scene2d.ui
             button.setUp(name, texturePath);
             button.addListener(clickListener);
             button.pad(pad);
-            button.makeUnavailable();
             list.add(button);
             return button;
         } else return null;
