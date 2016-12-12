@@ -3,6 +3,7 @@ package com.pocketbattles.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.pocketbattles.game.Actors.Actors;
 import com.pocketbattles.game.UserInterface.UserInterface;
 import com.pocketbattles.game.Utilities.Utilities;
 
@@ -25,6 +26,7 @@ public class Game {
         stage = new Stage();
         stage.setDebugAll(true);
         Utilities.initialise();
+        Actors.initialise();
         UserInterface.initialise();
 
         GOLD_AMOUNT = gamePreferences.getInteger("GOLD_AMOUNT", 10000);
@@ -37,6 +39,7 @@ public class Game {
     public static void create() {
         Utilities.create();
         Gdx.input.setInputProcessor(stage);
+        Actors.create();
         UserInterface.create();
     }
 
@@ -53,6 +56,7 @@ public class Game {
     public static void update() {
         Utilities.update();
         stage.act();
+        Actors.update();
         UserInterface.update();
     }
 
@@ -60,6 +64,7 @@ public class Game {
 
     public static void render() {
         stage.draw();
+        Actors.render();
         UserInterface.render();
     }
 
@@ -69,6 +74,7 @@ public class Game {
         gamePreferences.putInteger("GOLD_AMOUNT", GOLD_AMOUNT);
         gamePreferences.flush();
         Utilities.dispose();
+        Actors.dispose();
         UserInterface.dispose();
         stage.dispose();
     }
