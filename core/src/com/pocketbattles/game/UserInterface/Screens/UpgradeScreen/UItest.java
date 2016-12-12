@@ -6,14 +6,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.ButtonGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.pocketbattles.game.Actors.Entity.Base.Entity;
 import com.pocketbattles.game.Actors.Entity.Leaf.SWORDSMAN;
 import com.pocketbattles.game.Game;
 import com.pocketbattles.game.PocketBattles;
-import com.pocketbattles.game.UserInterface.Actors.UpgradeEntityImageButton;
 import com.pocketbattles.game.UserInterface.Actors.Image;
 import com.pocketbattles.game.UserInterface.Actors.Label;
 import com.pocketbattles.game.UserInterface.Actors.TextButton;
+import com.pocketbattles.game.UserInterface.Actors.UpgradeEntityImageButton;
 import com.pocketbattles.game.UserInterface.UserInterface;
 
 /**
