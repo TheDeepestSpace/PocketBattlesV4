@@ -6,6 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.ButtonGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.pocketbattles.game.Actors.Entity.Base.Entity;
+import com.pocketbattles.game.Actors.Entity.Leaf.SWORDSMAN;
 import com.pocketbattles.game.Game;
 import com.pocketbattles.game.PocketBattles;
 import com.pocketbattles.game.UserInterface.Actors.UpgradeEntityImageButton;
@@ -21,11 +23,15 @@ import com.pocketbattles.game.UserInterface.UserInterface;
 public class UItest {
     private static Table localScreenTable;
     private static final float upgradeTableImageScale = 2f;
+    private static Table entityListTable;
+    private static ButtonGroup entityListButtonGroup;
 
     /** INITIALISING */
 
     public static void initialise() {
         localScreenTable = new Table(UserInterface.skin);
+        entityListTable = new Table(UserInterface.skin);
+        entityListButtonGroup = new ButtonGroup();
     }
 
     /** CREATING AND SETTING UP */
@@ -39,57 +45,16 @@ public class UItest {
         localScreenTable.add().height(50).row();
         localScreenTable.add().height(300);
 
-        /*final Table upgradesTableImageTable = new Table(UserInterface.skin);
+        final Table upgradesTableImageTable = new Table(UserInterface.skin);
         upgradesTableImageTable.add(
                 Image.addInstance("UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE", "empty.jpg")
         ).center();
 
-        Table entityListTable = new Table(UserInterface.skin);
-        for (int i = 0; i < Game.entityClassesNames.size(); i++) {
-            final int finalI = i;
-            for (int j = 0; j < Game.entityUpgradeLevelsAvailable[i]; j++) {
-                entityListTable.add(
-                        UpgradeEntityImageButton.addInstance(
-                                "UPGRADE_SCREEN_ENTITY_LIST_TABLE_"
-                                        + Game.entityClassesNames.get(i)
-                                        + String.valueOf(j),
-                                "UserInterface/Screens/UpgradeScreen/Upgrades/"
-                                        + Game.entityClassesNames.get(i)
-                                        + "/"
-                                        + Game.entityClassesNames.get(i)
-                                        + String.valueOf(j),
-                                5,
-                                new ClickListener() {
-                                    @Override
-                                    public void clicked(InputEvent event, float x, float y) {
-                                        Image.getImage(
-                                                "UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE"
-                                        ).setTexture(
-                                                "Entities/"
-                                                        + Game.entityClassesNames.get(finalI)
-                                                        + "/initial.png",
-                                                upgradeTableImageScale
-                                        );
-                                    }
-                                }
-                        )
-                );
-            }
-            entityListTable.row();
-        }
+        addUpgradeTableEntityRow(SWORDSMAN.getLevels(),
+                SWORDSMAN.getLevelsAvailable(),
+                SWORDSMAN.class.getSimpleName()
+        );
 
-        ButtonGroup entityListButtonGroup = new ButtonGroup();
-        for (int i = 0; i < Game.entityClassesNames.size(); i++) {
-            for (int j = 0; j < Game.entityUpgradeLevelsAvailable[i]; j++) {
-                entityListButtonGroup.add(
-                        UpgradeEntityImageButton.getButton(
-                                "UPGRADE_SCREEN_ENTITY_LIST_TABLE_"
-                                        + Game.entityClassesNames.get(i)
-                                        + String.valueOf(j)
-                        )
-                );
-            }
-        }
         entityListButtonGroup.setMaxCheckCount(1);
         entityListButtonGroup.setMinCheckCount(0);
         entityListButtonGroup.setUncheckLast(true);
@@ -98,9 +63,44 @@ public class UItest {
 
         Table upgradesTable = new Table(UserInterface.skin);
         upgradesTable.add(entityListScrollPane).width(400);
-        upgradesTable.add(upgradesTableImageTable).width(400).fill();
+        upgradesTable.add(upgradesTableImageTable).width(400).fill().row();
+        upgradesTable.add();
 
-        localScreenTable.add(upgradesTable).height(400);*/
+        upgradesTable.add(
+                TextButton.addInstance(
+                        "UPGRADE_SCREEN_BUY_UPGRADE",
+                        "BUY UPGRADE",
+                        40,
+                        new ClickListener() {
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                for (int i = 0; i < entityListTable.getRows(); i++) {
+                                    for (int j = 0; j < entityListTable.getColumns(); j ++) {
+                                        if (
+                                                UpgradeEntityImageButton.getButton(
+                                                        "UPGRADE_SCREEN_ENTITY_LIST_TABLE_SWORDSMAN"
+                                                                + String.valueOf(j)
+                                                ).isChecked()
+                                                        && j == SWORDSMAN.getLevelsAvailable()
+                                                ) {
+                                            SWORDSMAN.addLevelsAvailable();
+                                            UpgradeEntityImageButton.getButton(
+                                                    "UPGRADE_SCREEN_ENTITY_LIST_TABLE_SWORDSMAN"
+                                                            + String.valueOf(j)
+                                            ).makeAvailable();
+                                            TextButton.getButton(
+                                                    "UPGRADE_SCREEN_BUY_UPGRADE"
+                                            ).setVisible(false);
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                )
+        );
+
+        localScreenTable.add(upgradesTable).height(400);
         localScreenTable.add(
                 Label.addInstance(
                         "UPGRADE_SCREEN_GOLD_AMOUNT", "fancyFont16", Color.GOLD
@@ -123,6 +123,56 @@ public class UItest {
         );
     }
 
+    public static void addUpgradeTableEntityRow(int levels, final int levelsAvailable, final String className) {
+        for (int j = 0; j < levels; j++) {
+            entityListTable.add(
+                    UpgradeEntityImageButton.addInstance(
+                            "UPGRADE_SCREEN_ENTITY_LIST_TABLE_"
+                                    + className
+                                    + String.valueOf(j),
+                            "UserInterface/Screens/UpgradeScreen/Upgrades/"
+                                    + className
+                                    + "/"
+                                    + className
+                                    + String.valueOf(j),
+                            5,
+                            new ClickListener() {
+                                @Override
+                                public void clicked(InputEvent event, float x, float y) {
+                                    Image.getImage(
+                                            "UPGRADE_SCREEN_UPGRADABLE_ENTITY_IMAGE"
+                                    ).setTexture(
+                                            "Entities/"
+                                                    + className
+                                                    + "/initial.png",
+                                            upgradeTableImageScale
+                                    );
+                                }
+                            }
+                    )
+            );
+        }
+        entityListTable.row();
+
+        for (int j = 0; j < levels; j++) {
+            entityListButtonGroup.add(
+                    UpgradeEntityImageButton.getButton(
+                            "UPGRADE_SCREEN_ENTITY_LIST_TABLE_"
+                                    + className
+                                    + String.valueOf(j)
+                    )
+            );
+
+            if (j >= levelsAvailable) {
+                UpgradeEntityImageButton.getButton(
+                        "UPGRADE_SCREEN_ENTITY_LIST_TABLE_"
+                                + className
+                                + String.valueOf(j)
+                ).makeUnavailable();
+            }
+        }
+    }
+
     public static void set() {
         UserInterface.screenTable.add(localScreenTable);
     }
@@ -131,6 +181,30 @@ public class UItest {
 
     public static void update() {
         Label.getLabel("UPGRADE_SCREEN_GOLD_AMOUNT").update("GOLD:" + Game.GOLD_AMOUNT);
+        showBuyUpgradeButton();
+    }
+
+    public static void showBuyUpgradeButton() {
+        for (int i = 0; i < entityListTable.getRows(); i++) {
+            for (int j = 0; j < entityListTable.getColumns(); j ++) {
+                if (
+                        UpgradeEntityImageButton.getButton(
+                                "UPGRADE_SCREEN_ENTITY_LIST_TABLE_SWORDSMAN"
+                                        + String.valueOf(j)
+                        ).isChecked()
+                                && j == SWORDSMAN.getLevelsAvailable()
+                        ) {
+                    TextButton.getButton(
+                            "UPGRADE_SCREEN_BUY_UPGRADE"
+                    ).setVisible(true);
+                    return;
+                }else {
+                    TextButton.getButton(
+                            "UPGRADE_SCREEN_BUY_UPGRADE"
+                    ).setVisible(false);
+                }
+            }
+        }
     }
 
     /** DISPOSING */
