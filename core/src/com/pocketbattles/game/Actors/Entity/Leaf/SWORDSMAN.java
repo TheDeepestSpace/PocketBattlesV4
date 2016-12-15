@@ -13,6 +13,13 @@ public class SWORDSMAN extends Entity {
     public static void initialiseClass() {
         levels = 5;
         levelsAvailable = 1;
+        initUpgradeCost = 500;
+        upgradeCostMultiplier = 1.2;
+        initCost = 50;
+        upgradeCostMultiplier = 1.5;
+        costMultiplier = 1.2;
+
+        initialiseAvailableByLevel(levels);
     }
 
     SWORDSMAN() {
