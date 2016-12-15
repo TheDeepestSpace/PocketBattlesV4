@@ -34,6 +34,17 @@ public class Image extends com.badlogic.gdx.scenes.scene2d.ui.Image {
         }else return null;
     }
 
+    public static Image addInstance(String name, String path, float scale) {
+        if (nameAvailable(name)) {
+            Texture t = new Texture(Gdx.files.internal(path));
+            Image i = new Image(t);
+            i.setUp(name);
+            i.setTexture(path, scale);
+            list.add(i);
+            return i;
+        }else return null;
+    }
+
     Image(Texture texture) {
         super(texture);
     }
