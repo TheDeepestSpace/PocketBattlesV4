@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.pocketbattles.game.Actors.Actors;
+import com.pocketbattles.game.Actors.Entity.Base.ReflectionUtility;
 import com.pocketbattles.game.UserInterface.UserInterface;
 import com.pocketbattles.game.Utilities.Utilities;
 
@@ -24,7 +25,7 @@ public class Game {
     public static void initialise() {
         gamePreferences = Gdx.app.getPreferences("GAME_PREFERENCES");
         stage = new Stage();
-        stage.setDebugAll(true);
+        stage.setDebugAll(false);
         Utilities.initialise();
         Actors.initialise();
         UserInterface.initialise();
@@ -32,6 +33,7 @@ public class Game {
         GOLD_AMOUNT = gamePreferences.getInteger("GOLD_AMOUNT", 10000);
         entityClassesNames = new ArrayList<String>();
         setEntityClassesNames();
+        ReflectionUtility.initilaise();
     }
 
     /** CREATING AND SETTING UP */
@@ -45,10 +47,6 @@ public class Game {
 
     private static void setEntityClassesNames(){
         entityClassesNames.add("SWORDSMAN");
-        entityClassesNames.add("ARCHER");
-        entityClassesNames.add("WATCHTOWER");
-        entityClassesNames.add("WALL");
-        entityClassesNames.add("TREE");
     }
 
     /** UPDATING */
