@@ -30,6 +30,8 @@ public class Entity {
     /* SETTABLE PROPERTIES */
 
     protected static int levels, levelsAvailable;
+    protected static int initUpgradeCost, initCost;
+    protected static double upgradeCostMultiplier, costMultiplier;
 
     protected int line, row;
     protected int initHP, HP;
@@ -41,6 +43,10 @@ public class Entity {
 
     /* VISUAL */
 
+    /* */
+
+    protected static ArrayList<Integer> availableByLevel;
+
     /** INITIALISING */
 
     public static void initialiseClass() {
@@ -50,6 +56,15 @@ public class Entity {
 
         btreeUpdateDelay = 60;
         currentBtreeUpdateDelay = 0;
+
+        levels = 0;
+        levelsAvailable = 0;
+        initUpgradeCost = 0;
+        initCost = 0;
+        upgradeCostMultiplier = 0.0;
+        costMultiplier = 0.0;
+
+        availableByLevel = new ArrayList<Integer>();
     }
 
     protected Entity() {
@@ -149,6 +164,30 @@ public class Entity {
         return levelsAvailable;
     }
 
+    public static int getInitUpgradeCost() {
+        return initUpgradeCost;
+    }
+
+    public static int getUpgradeCost() {
+        return (int) (Math.pow(upgradeCostMultiplier, getLevelsAvailable()) * initUpgradeCost);
+    }
+
+    public static int getInitCost() {
+        return initCost;
+    }
+
+    public static int getCost(int level) {
+        return (int) (Math.pow(costMultiplier, level) * initCost);
+    }
+
+    public static double getUpgradeCostMultiplier() {
+        return upgradeCostMultiplier;
+    }
+
+    public static double getCostMultiplier() {
+        return costMultiplier;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -222,6 +261,24 @@ public class Entity {
 
     public void setDead(boolean dead) {
         this.dead = dead;
+    }
+
+    public static ArrayList<Integer> getAvailableByLevel() {
+        return availableByLevel;
+    }
+
+    public static int addEntity(int level) {
+        availableByLevel.set(level, availableByLevel.get(level) + 1);
+        return 1;
+    }
+
+    public static void initialiseAvailableByLevel(int levels) {
+        for (int i = 0; i != levels; ++i)
+            availableByLevel.add(0);
+    }
+
+    public static int getAvailableEntities(int level) {
+        return availableByLevel.get(level);
     }
 
     private static boolean canCreateEntity(int line, int row) {
