@@ -1,5 +1,7 @@
 package com.pocketbattles.game.Actors.Entity.Base;
 
+import com.pocketbattles.game.Game;
+
 import java.util.ArrayList;
 
 /**
@@ -43,9 +45,9 @@ public class Entity {
 
     /* VISUAL */
 
-    /* */
+    /* OTHER */
 
-    protected static ArrayList<Integer> availableByLevel;
+    protected static ArrayList<ArrayList<Integer>> availableByLevel;
 
     /** INITIALISING */
 
@@ -64,7 +66,7 @@ public class Entity {
         upgradeCostMultiplier = 0.0;
         costMultiplier = 0.0;
 
-        availableByLevel = new ArrayList<Integer>();
+        availableByLevel = new ArrayList<ArrayList<Integer>>();
     }
 
     protected Entity() {
@@ -263,22 +265,26 @@ public class Entity {
         this.dead = dead;
     }
 
-    public static ArrayList<Integer> getAvailableByLevel() {
-        return availableByLevel;
+    public static ArrayList<Integer> getAvailableByLevel(String className) {
+        return availableByLevel.get(getClassIdx(className));
     }
 
-    public static int addEntity(int level) {
-        availableByLevel.set(level, availableByLevel.get(level) + 1);
+    public static int addEntity(String className, int level) {
+        availableByLevel.get(getClassIdx(className))
+                .set(level, availableByLevel.get(getClassIdx(className)).get(level) + 1);
         return 1;
     }
 
     public static void initialiseAvailableByLevel(int levels) {
-        for (int i = 0; i != levels; ++i)
-            availableByLevel.add(0);
+        for (int j = 0; j != Game.entityClassesNames.size(); ++j) {
+            availableByLevel.add(new ArrayList<Integer>());
+            for (int i = 0; i != levels; ++i)
+                availableByLevel.get(j).add(0);
+        }
     }
 
-    public static int getAvailableEntities(int level) {
-        return availableByLevel.get(level);
+    public static int getAvailableEntities(String className, int level) {
+        return availableByLevel.get(getClassIdx(className)).get(level);
     }
 
     private static boolean canCreateEntity(int line, int row) {
@@ -288,6 +294,14 @@ public class Entity {
         }
 
         return true;
+    }
+
+    private static int getClassIdx(String entityClass) {
+        for (int i = 0; i != Game.entityClassesNames.size(); ++i) {
+            if (Game.entityClassesNames.get(i).equals(entityClass))
+                return i;
+        }
+        return -1;
     }
 
     /** INTERACTING */

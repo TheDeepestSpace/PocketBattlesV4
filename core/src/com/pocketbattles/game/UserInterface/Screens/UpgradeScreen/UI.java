@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.pocketbattles.game.Actors.Entity.Base.Entity;
 import com.pocketbattles.game.Actors.Entity.Base.ReflectionUtility;
 import com.pocketbattles.game.Actors.User;
 import com.pocketbattles.game.Game;
@@ -263,8 +264,10 @@ public class UI {
         int currentCost, entitiesAvailable;
         for (int i = 0; i < entityListTable.getRows(); i++) {
             for (int j = 0; j < entityListTable.getColumns(); j ++) {
-                entitiesAvailable = ReflectionUtility.invoke(Game.entityClassesNames.get(i),
-                        "getAvailableEntities", j);
+                entitiesAvailable = Entity.getAvailableEntities(
+                        Game.entityClassesNames.get(i),
+                        j
+                );
                 Label.getLabel(
                         "UPGRADE_SCREEN_ENTITY_AMOUNT"
                 ).update("x" + entitiesAvailable);

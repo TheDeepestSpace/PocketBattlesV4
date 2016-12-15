@@ -1,5 +1,6 @@
 package com.pocketbattles.game.Actors;
 
+import com.pocketbattles.game.Actors.Entity.Base.Entity;
 import com.pocketbattles.game.Actors.Entity.Base.ReflectionUtility;
 import com.pocketbattles.game.Game;
 
@@ -49,7 +50,7 @@ public class User {
 
         if (enoughFor(buyCost)) {
             pay(buyCost);
-            ReflectionUtility.invoke(entityClass, "addEntity", level);
+            Entity.addEntity(entityClass, level);
             return true;
         }else return false;
     }

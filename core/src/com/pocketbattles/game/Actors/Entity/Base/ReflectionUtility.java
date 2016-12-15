@@ -23,8 +23,6 @@ public class ReflectionUtility {
         methodNames.add("getUpgradeCost");
         methodNames.add("getCost");
         methodNames.add("addLevelsAvailable");
-        methodNames.add("addEntity");
-        methodNames.add("getAvailableEntities");
         methods = new ArrayList<ArrayList<Method>>();
 
         for (int i = 0; i != Game.entityClassesNames.size(); ++i) {
@@ -33,7 +31,7 @@ public class ReflectionUtility {
                         + Game.entityClassesNames.get(i)));
                 methods.add(new ArrayList<Method>());
                 for (int j = 0; j != methodNames.size(); ++j) {
-                    if (j == 3 || j == 5 || j == 6) {
+                    if (j == 3) {
                         try {
                             methods.get(i).add(entityClasses.get(i).getMethod(methodNames.get(j), int.class));
                         } catch (NoSuchMethodException e) {
@@ -54,8 +52,7 @@ public class ReflectionUtility {
     }
 
     public static int invoke(String className, String methodName, int param) {
-        if (methodName.equals("getCost") || methodName.equals("addEntity")
-                || methodName.equals("getAvailableEntities")) {
+        if (methodName.equals("getCost")) {
             try {
                 return (Integer) methods.get(getClassIdx(className)).get(getMethodIdx(methodName)).invoke(null, param);
             } catch (IllegalAccessException e) {

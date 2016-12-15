@@ -26,13 +26,13 @@ public class Game {
         gamePreferences = Gdx.app.getPreferences("GAME_PREFERENCES");
         stage = new Stage();
         stage.setDebugAll(false);
+        entityClassesNames = new ArrayList<String>();
+        setEntityClassesNames();
         Utilities.initialise();
         Actors.initialise();
         UserInterface.initialise();
 
         GOLD_AMOUNT = gamePreferences.getInteger("GOLD_AMOUNT", 10000);
-        entityClassesNames = new ArrayList<String>();
-        setEntityClassesNames();
         ReflectionUtility.initilaise();
     }
 
