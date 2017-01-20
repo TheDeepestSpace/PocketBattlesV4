@@ -16,16 +16,32 @@ import com.pocketbattles.game.UserInterface.UserInterface;
  */
 public class UI {
     private static Table localScreenTable;
+    private static Table mainMenuButtonsTable;
 
     /** INITIALISING */
 
     public static void initialise() {
         localScreenTable = new Table(UserInterface.skin);
+        mainMenuButtonsTable = new Table(UserInterface.skin);
     }
 
     /** CREATING AND SETTING UP */
 
     public static void setUp() {
+        addTitle();
+        localScreenTable.add().height(40).row();
+        addStartButton();
+        mainMenuButtonsTable.add().width(40);
+        addUpgradeButton();
+        mainMenuButtonsTable.add().height(40).row();
+        addSettingsButton();
+        mainMenuButtonsTable.add();
+        addExitButton();
+
+        localScreenTable.add(mainMenuButtonsTable);
+    }
+
+    private static void addTitle() {
         localScreenTable.add(
                 Label.addInstance(
                         "MAIN_SCREEN_TITLE",
@@ -34,8 +50,9 @@ public class UI {
                         Color.GREEN
                 )
         ).row();
-        localScreenTable.add().height(40).row();
-        Table mainMenuButtonsTable = new Table(UserInterface.skin);
+    }
+
+    private static void addStartButton() {
         mainMenuButtonsTable.add(
                 TextButton.addInstance(
                         "MAIN_SCREEN_START_BUTTON",
@@ -49,7 +66,9 @@ public class UI {
                         }
                 )
         ).fill();
-        mainMenuButtonsTable.add().width(40);
+    }
+
+    private static void addUpgradeButton() {
         mainMenuButtonsTable.add(
                 TextButton.addInstance(
                         "MAIN_SCREEN_UPGRADE_BUTTON",
@@ -63,7 +82,9 @@ public class UI {
                         }
                 )
         ).fill().row();
-        mainMenuButtonsTable.add().height(40).row();
+    }
+
+    private static void addSettingsButton() {
         mainMenuButtonsTable.add(
                 TextButton.addInstance(
                         "MAIN_SCREEN_SETTINGS_BUTTON",
@@ -77,7 +98,9 @@ public class UI {
                         }
                 )
         ).fill();
-        mainMenuButtonsTable.add();
+    }
+
+    private static void addExitButton() {
         mainMenuButtonsTable.add(
                 TextButton.addInstance(
                         "MAIN_SCREEN_EXIT_BUTTON",
@@ -91,7 +114,6 @@ public class UI {
                         }
                 )
         ).fill();
-        localScreenTable.add(mainMenuButtonsTable);
     }
 
     public static void set() {
